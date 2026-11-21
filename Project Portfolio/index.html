@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MD Rashed Raihan — Designer. Educator. Entrepreneur.</title>
+  <meta name="description" content="Portfolio of MD Rashed Raihan — Graphic Designer, Web Developer, Professional Trainer and Founder & CEO of Creative AI Institute.">
+  <link rel="icon" href="image/Rashed.png">
+  
+  <!-- স্ট্যান্ডার্ড এবং ক্লিন ফন্ট (Inter + Hind Siliguri for Bangla) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ====== কালার ও থিম সিস্টেম ====== */
+    :root {
+      /* Light Mode Colors */
+      --bg: #FAFAFA; 
+      --bg-gradient: linear-gradient(-45deg, #FAFAFA, #F0E8FF, #E8F5FF, #FFF0F5, #FAFAFA);
+      --ink: #111111; 
+      --ink-soft: #555555;
+      --accent: #6C4DFF; 
+      --accent-2: #FF4D94; 
+      --card-bg: rgba(255, 255, 255, 0.6);
+      --card-hover: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(255, 255, 255, 0.9);
+      --nav-bg: rgba(255, 255, 255, 0.8);
+      --line: rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] {
+      /* Dark Mode Colors */
+      --bg: #0F1016; 
+      --bg-gradient: linear-gradient(-45deg, #0F1016, #1A1525, #101825, #1F141A, #0F1016);
+      --ink: #F3F4F6; 
+      --ink-soft: #9CA3AF;
+      --accent: #8B72FF; 
+      --accent-2: #FF6B9E; 
+      --card-bg: rgba(30, 30, 40, 0.6);
+      --card-hover: rgba(40, 40, 55, 0.9);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --nav-bg: rgba(15, 16, 22, 0.8);
+      --line: rgba(255,255,255,0.1);
+    }
+
+    :root{
+      --radius: 24px; 
+      --radius-sm: 12px;
+      --maxw: 1240px; 
+      --gutter: clamp(20px, 5vw, 64px);
+      --font-main: "Inter", "Hind Siliguri", sans-serif;
+      --font-mono: monospace;
+    }
+
+    /* ====== বেসিক রিসেট ====== */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:var(--font-main); color:var(--ink);
+      line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x: hidden;
+      background: var(--bg-gradient);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      transition: color 0.4s ease, background 0.4s ease;
+    }
+    
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    img{max-width:100%;display:block}
+    h1,h2,h3,h4{font-family:var(--font-main);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin:0; transition: color 0.4s ease;}
+    a{color:inherit;text-decoration:none}
+    
+    /* ====== নেভিগেশন ====== */
+    .site-nav{
+      position:sticky; top:0; z-index:100;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:16px var(--gutter);
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom:1px solid var(--line);
+      transition: all 0.4s ease;
+    }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .brand{font-size:1.6rem;font-weight:900;display:flex;align-items:center;gap:.4em; color: var(--accent); letter-spacing: -1px;}
+    .brand span{font-size:.9rem;font-weight:600;color:var(--ink-soft); letter-spacing: normal;}
+    
+    .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;align-items:center}
+    .nav-links a{font-size:.95rem;font-weight:600;transition:color .2s; position: relative;}
+    .nav-links a::after {
+      content: ''; position: absolute; width: 0%; height: 2px; bottom: -4px; left: 0;
+      background: var(--accent); transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover{color:var(--accent)}
+
+    .nav-controls { display: flex; gap: 12px; align-items: center;}
+    .control-btn {
+      background: var(--card-bg); border: 1px solid var(--card-border); color: var(--ink);
+      padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: inherit;
+      backdrop-filter: blur(10px); transition: all 0.3s ease; display: flex; align-items: center; gap: 6px;
+    }
+    .control-btn:hover { background: var(--card-hover); transform: translateY(-2px); border-color: var(--accent);}
+
+    /* ====== গ্লোবাল সেকশন স্টাইল ====== */
+    .section{padding:clamp(64px, 8vw, 120px) var(--gutter);max-width:var(--maxw);margin:0 auto; position: relative; z-index: 2;}
+    .section__head{margin-bottom:48px}
+    .section__num{font-family:var(--font-mono);font-size:14px;color:var(--accent);letter-spacing:.15em; font-weight: 700; background: rgba(108, 77, 255, 0.1); padding: 6px 12px; border-radius: 20px;}
+    [data-theme="dark"] .section__num { background: rgba(139, 114, 255, 0.15); }
+    .section__title{font-size:clamp(2.5rem,5vw,4rem);margin:.3em 0;}
+    .section__lede{color:var(--ink-soft);max-width:56ch;font-size:1.15rem}
+
+    /* ====== হিরো সেকশন ====== */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gutter);min-height:90vh;align-items:center;padding:clamp(60px,8vw,120px) var(--gutter);max-width:var(--maxw);margin:0 auto}
+    .hero__title{font-size:clamp(3rem,7vw,6.5rem);font-weight:900;margin:.1em 0 .2em; letter-spacing:-.04em; line-height: 1.05; color: var(--ink);}
+    .hero__title span { color: var(--accent); }
+    
+    .hero__typing {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--accent-2);
+      margin-bottom: 20px;
+      height: 1.5em;
+      display: flex;
+      align-items: center;
+    }
+    .typewriter-text {
+      display: inline-block;
+      border-right: 3px solid var(--accent-2);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blinkCursor 0.75s step-end infinite;
+    }
+    @keyframes blinkCursor {
+      from, to { border-color: transparent }
+      50% { border-color: var(--accent-2); }
+    }
+
+    .hero__sub{font-size:1.2rem;max-width:44ch;color:var(--ink-soft); line-height: 1.7;}
+    .hero__sub strong{color:var(--ink); font-weight: 700;}
+    .hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 40px}
+    
+    .hero__portrait-container {
+      position: relative; width: 100%; max-width: 400px; margin: 0 auto;
+      border-radius: 50%; padding: 10px;
+      box-shadow: 0 0 30px rgba(108, 77, 255, 0.3), 0 0 60px rgba(255, 77, 148, 0.2);
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(108, 77, 255, 0.3), 0 0 40px rgba(255, 77, 148, 0.1); }
+      100% { box-shadow: 0 0 40px rgba(108, 77, 255, 0.6), 0 0 80px rgba(255, 77, 148, 0.4); }
+    }
+    .hero__portrait-container::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), #00E5FF, var(--accent));
+      animation: spinRing 4s linear infinite; z-index: 1;
+    }
+    @keyframes spinRing { 100% { transform: rotate(360deg); } }
+    
+    .hero__portrait{
+      position:relative; width: 100%; aspect-ratio:1/1; border-radius:50%;
+      overflow:hidden; background: var(--card-bg); z-index: 2; border: 4px solid var(--card-border);
+    }
+    .hero__portrait img{width:100%;height:100%;object-fit:cover; object-position: top center ; transition: transform .5s ease;}
+    .hero__portrait:hover img{transform: scale(1.1);}
+
+    /* ====== বাটন (Buttons) ====== */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4em;padding:16px 32px;border-radius:50px;font-weight:600;font-size:1rem;transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);border:none;cursor:pointer;font-family:inherit; position: relative; overflow: hidden;}
+    .btn--primary{background:linear-gradient(45deg, var(--accent), #9A85FF);color:#fff; box-shadow: 0 10px 25px rgba(108, 77, 255, 0.4);}
+    .btn--primary:hover{transform:translateY(-4px) scale(1.02); box-shadow: 0 15px 35px rgba(108, 77, 255, 0.6);}
+    .btn--ghost{background:var(--card-bg);color:var(--ink);border:2px solid var(--card-border); backdrop-filter: blur(10px); box-shadow: 0 8px 20px rgba(0,0,0,0.05);}
+    .btn--ghost:hover{background:var(--card-hover);color:var(--accent);transform:translateY(-4px) scale(1.02);}
+    
+    /* ====== গ্লাস কার্ড (Glassmorphism) ====== */
+    .card-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      background: var(--card-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding:36px; border-radius:var(--radius); transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+      border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .card:hover{transform:translateY(-10px); box-shadow: 0 25px 50px rgba(108, 77, 255, 0.15); background: var(--card-hover); border-color: var(--accent);}
+    .card h3{font-size:1.4rem;margin-bottom:20px; color: var(--accent);}
+    .card ul{padding-left:20px;color:var(--ink-soft);margin:0; font-size: 1.05rem;}
+    .card li{margin-bottom:10px;}
+
+    /* ====== AI সেকশন ====== */
+    .ai-card {
+      background: linear-gradient(135deg, rgba(108, 77, 255, 0.1) 0%, rgba(255, 77, 148, 0.1) 100%);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 48px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(108, 77, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-card::before {
+      content: '🤖';
+      position: absolute;
+      font-size: 150px;
+      opacity: 0.05;
+      top: -20px;
+      right: -20px;
+      transform: rotate(15deg);
+    }
+    .ai-card h3 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .ai-card p {
+      font-size: 1.15rem;
+      color: var(--ink);
+      max-width: 800px;
+      margin: 0 auto 32px auto;
+      line-height: 1.8;
+    }
+    .ai-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .ai-badge {
+      background: #fff;
+      color: var(--accent);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid var(--card-border);
+    }
+    [data-theme="dark"] .ai-badge {
+      background: rgba(255,255,255,0.1);
+      color: var(--accent-2);
+    }
+
+    /* ====== টাইমলাইন ====== */
+    .timeline{list-style:none;padding:0;border-left:3px dashed rgba(108, 77, 255, 0.4);margin-left:8px}
+    .timeline__item{padding:0 0 48px 40px;position:relative}
+    .timeline__item::before{
+      content:"";position:absolute;left:-10px;top:6px;width:16px;height:16px;border-radius:50%;
+      background:var(--accent); box-shadow: 0 0 0 6px rgba(108, 77, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+    .timeline__item:hover::before { background: var(--accent-2); box-shadow: 0 0 0 8px rgba(255, 77, 148, 0.2); }
+    
+    .period{font-family:var(--font-mono);font-size:13px;color:#fff; background: var(--accent); padding: 4px 12px; border-radius: 12px; letter-spacing:.05em; text-transform:uppercase; font-weight: 700;}
+    .timeline__body{margin-top: 12px;}
+    .timeline__body h3{font-size:1.6rem;margin:.2em 0 .5em;}
+    .timeline__body h4{font-size: 1.1rem; margin: 0 0 4px 0; color: var(--accent-2);}
+    .timeline__body ul{padding-left:20px;color:var(--ink-soft);margin:0; font-size: 1.05rem;}
+
+    /* ====== স্ট্যাটস ====== */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 32px;}
+    .stat-box {
+      background: var(--card-bg); border-radius: var(--radius-sm); padding: 24px;
+      text-align: center; border: 1px solid var(--card-border); box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease; backdrop-filter: blur(10px);
+    }
+    .stat-box:hover { transform: translateY(-5px); border-color: var(--accent-2); }
+    .stat-box h4 { font-size: 2.5rem; color: var(--accent); margin: 0 0 8px 0; font-weight: 900;}
+    .stat-box p { margin: 0; color: var(--ink-soft); font-weight: 600; font-size: 0.95rem;}
+
+    /* ====== সার্টিফিকেট ====== */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .cert-card {
+      background: var(--card-bg); backdrop-filter: blur(10px);
+      padding: 32px; border-radius: var(--radius-sm); border-left: 6px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(108, 77, 255, 0.08); transition: all 0.3s ease;
+      border-top: 1px solid var(--card-border); border-right: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);
+    }
+    .cert-card:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(108, 77, 255, 0.15); }
+    .cert-card h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--ink);}
+    .cert-card p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+    .cert-card span { display: inline-block; margin-top: 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); font-weight: 700;}
+
+    /* ====== ইনস্টিটিউট ====== */
+    .institute__card{
+      background: var(--card-bg); backdrop-filter: blur(20px);
+      border-radius:var(--radius); padding:clamp(32px,5vw,64px); 
+      display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:center; 
+      box-shadow: 0 20px 50px rgba(108, 77, 255, 0.1); 
+      border: 2px solid var(--card-border); transition: transform 0.4s ease;
+    }
+    .institute__card:hover { transform: scale(1.01); box-shadow: 0 30px 60px rgba(108, 77, 255, 0.2); }
+    .institute__title{font-size:clamp(2rem,4vw,3rem);color:var(--ink);}
+    .institute__tagline{font-family:var(--font-mono);font-size:.9rem;color:var(--accent);letter-spacing:.08em;margin:12px 0 24px; font-weight: 700;}
+
+    /* ====== ফুটার ====== */
+    .site-footer{padding:48px var(--gutter);text-align:center;font-size:.95rem; border-top: 1px solid var(--line); margin-top: 48px; font-weight: 500; color: var(--ink-soft);}
+    
+    /* ====== অ্যানিমেশন ====== */
+    .slide-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .slide-right { opacity: 0; transform: translateX(60px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .slide-up { opacity: 0; transform: translateY(60px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .slide-left.active, .slide-right.active, .slide-up.active { opacity: 1; transform: translateX(0) translateY(0); }
+
+    /* রেসপন্সিভ */
+    @media(max-width:860px){
+      .site-nav { flex-direction: column; gap: 16px; padding: 16px;}
+      .nav-links{display:none;}
+      .hero{grid-template-columns:1fr; text-align:center; padding-top: 40px;}
+      .hero__sub{max-width:100%; margin: 0 auto;}
+      .hero__cta{justify-content:center;}
+      .hero__typing { justify-content: center; }
+      .hero__portrait-container{max-width: 300px; margin-top: 40px;}
+      .institute__card{grid-template-columns:1fr;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="nav-left">
+      <a href="#home" class="brand">RR <span>Rashed Raihan</span></a>
+    </div>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about" data-en="About" data-bn="সম্পর্কে">About</a></li>
+        <li><a href="#study" data-en="Study" data-bn="শিক্ষা">Study</a></li>
+        <li><a href="#journey" data-en="Journey" data-bn="যাত্রা">Journey</a></li>
+        <li><a href="#teaching" data-en="Teaching" data-bn="শিক্ষাদান">Teaching</a></li>
+        <li><a href="#ai" data-en="AI Expertise" data-bn="এআই দক্ষতা">AI Expertise</a></li>
+        <li><a href="#projects" data-en="Projects" data-bn="প্রজেক্ট">Projects</a></li>
+        <li><a href="#connect" data-en="Connect" data-bn="যোগাযোগ">Connect</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-controls">
+      <button class="control-btn" id="langToggle" onclick="toggleLanguage()">বাংলা</button>
+      <button class="control-btn" id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- হিরো সেকশন -->
+    <section id="home" class="hero">
+      <div class="hero__inner slide-up">
+        <p style="font-family: var(--font-mono); color: var(--accent); font-weight: 800; letter-spacing: 3px; font-size: 14px;" data-en="HELLO, I'M" data-bn="হ্যালো, আমি">HELLO, I'M</p>
+        <h1 class="hero__title" data-en="MD Rashed<br><span>Raihan.</span>" data-bn="মোঃ রাশেদ<br><span>রায়হান।</span>">MD Rashed<br><span>Raihan.</span></h1>
+        
+        <div class="hero__typing">
+          <span id="typewriter" class="typewriter-text"></span>
+        </div>
+
+        <p class="hero__sub" data-en="<strong>Educator & Entrepreneur.</strong><br> I blend creativity, technology, and education to create meaningful digital experiences and empower the next generation through practical learning." data-bn="<strong>শিক্ষাবিদ ও উদ্যোক্তা।</strong><br> আমি সৃজনশীলতা, প্রযুক্তি এবং শিক্ষার মিশ্রণে অর্থবহ ডিজিটাল অভিজ্ঞতা তৈরি করি এবং ব্যবহারিক শিক্ষার মাধ্যমে আগামী প্রজন্মকে ক্ষমতায়ন করি।">
+          <strong>Educator & Entrepreneur.</strong><br> I blend creativity, technology, and education
+          to create meaningful digital experiences and empower the next generation through practical learning.
+        </p>
+        <div class="hero__cta">
+          <a href="#about" class="btn btn--primary" data-en="Explore My Journey →" data-bn="আমার যাত্রা দেখুন →">Explore My Journey →</a>
+          <a href="#institute" class="btn btn--ghost" data-en="View My Institute" data-bn="আমার ইনস্টিটিউট দেখুন">View My Institute</a>
+        </div>
+      </div>
+      <div class="hero__portrait-container slide-up">
+        <div class="hero__portrait">
+          <img src="image/Rashed.png" alt="MD Rashed Raihan">
+        </div>
+      </div>
+    </section>
+
+    <!-- অ্যাবাউট সেকশন -->
+    <section id="about" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">01 — WHO AM I</span>
+        <h2 class="section__title" data-en="About Me" data-bn="আমার সম্পর্কে">About Me</h2>
+      </header>
+      <div class="slide-right" style="max-width: 800px; background: var(--card-bg); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border);">
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--ink-soft);" 
+           data-en="My journey started with a curiosity for technology, creativity, and learning. Over time I developed professional skills in <strong>Graphic Design</strong> and <strong>Web Development</strong>, and discovered a deeper passion — teaching. Today I combine creativity, technology, and education as a designer, trainer, educator, and the <strong>Founder & CEO of Creative AI Institute</strong>." 
+           data-bn="আমার যাত্রা শুরু হয়েছিল প্রযুক্তি, সৃজনশীলতা এবং শেখার কৌতূহল দিয়ে। সময়ের সাথে সাথে আমি <strong>গ্রাফিক ডিজাইন</strong> এবং <strong>ওয়েব ডেভেলপমেন্টে</strong> পেশাদার দক্ষতা অর্জন করি এবং শিক্ষাদানের প্রতি গভীর আগ্রহ আবিষ্কার করি। আজ আমি একজন ডিজাইনার, প্রশিক্ষক, শিক্ষাবিদ এবং <strong>ক্রিয়েটিভ এআই ইনস্টিটিউটের প্রতিষ্ঠাতা ও সিইও</strong> হিসেবে সৃজনশীলতা, প্রযুক্তি এবং শিক্ষাকে একত্রিত করি।">
+          My journey started with a curiosity for technology, creativity, and learning. Over time I developed
+          professional skills in <strong>Graphic Design</strong> and <strong>Web Development</strong>, and discovered
+          a deeper passion — teaching. Today I combine creativity, technology, and education as a designer, trainer, educator, and
+          the <strong>Founder & CEO of Creative AI Institute</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- স্টাডি ব্যাকগ্রাউন্ড -->
+    <section id="study" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">02 — ACADEMIC</span>
+        <h2 class="section__title" data-en="Study Background" data-bn="শিক্ষাগত যোগ্যতা">Study Background</h2>
+      </header>
+      <ol class="timeline slide-right">
+        <li class="timeline__item">
+          <span class="period">2020 – 2024</span>
+          <div class="timeline__body">
+            <h4 data-en="BA (Honours)" data-bn="বিএ (অনার্স)">BA (Honours)</h4>
+            <h3>National University of Bangladesh</h3>
+            <ul>
+              <li data-en="Department: English" data-bn="বিভাগ: ইংরেজি">Department: English</li>
+              <li data-en="Status: Completed" data-bn="অবস্থা: সম্পন্ন">Status: Completed</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="period">2018 – 2019</span>
+          <div class="timeline__body">
+            <h4 data-en="Higher Secondary Certificate (HSC)" data-bn="উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)">Higher Secondary Certificate (HSC)</h4>
+            <h3>Gridakalinda Hazera Hasmot Degree College</h3>
+            <ul><li data-en="Group: Science" data-bn="গ্রুপ: বিজ্ঞান">Group: Science</li></ul>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="period">2016 – 2017</span>
+          <div class="timeline__body">
+            <h4 data-en="Secondary School Certificate (SSC)" data-bn="মাধ্যমিক সার্টিফিকেট (এসএসসি)">Secondary School Certificate (SSC)</h4>
+            <h3>Faridganj A.R. Pilot High School</h3>
+            <ul><li data-en="Location: Chandpur, Bangladesh" data-bn="অবস্থান: চাঁদপুর, বাংলাদেশ">Location: Chandpur, Bangladesh</li></ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- জার্নি সেকশন -->
+    <section id="journey" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">03 — EXPERIENCE</span>
+        <h2 class="section__title" data-en="My Journey" data-bn="আমার পেশাগত যাত্রা">My Journey</h2>
+      </header>
+      <ol class="timeline slide-right">
+        <li class="timeline__item">
+          <span class="period" data-en="Current" data-bn="বর্তমান">Current</span>
+          <div class="timeline__body">
+            <h3 data-en="Founder & CEO — <span style='color:var(--ink-soft)'>Creative AI Institute</span>" data-bn="প্রতিষ্ঠাতা ও সিইও — <span style='color:var(--ink-soft)'>ক্রিয়েটিভ এআই ইনস্টিটিউট</span>">Founder & CEO — <span style="color:var(--ink-soft)">Creative AI Institute</span></h3>
+            <ul>
+              <li data-en="Leading institutional operations and training programs" data-bn="প্রাতিষ্ঠানিক কার্যক্রম ও প্রশিক্ষণ কর্মসূচি পরিচালনা">Leading institutional operations and training programs</li>
+              <li data-en="Designing professional courses & curriculum" data-bn="পেশাদার কোর্স ও পাঠ্যক্রম ডিজাইন">Designing professional courses & curriculum</li>
+              <li data-en="Teaching, mentoring, and managing institutional branding" data-bn="শিক্ষাদান, মেন্টরিং এবং প্রাতিষ্ঠানিক ব্র্যান্ডিং">Teaching, mentoring, and managing institutional branding</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="period">2022 – 2025</span>
+          <div class="timeline__body">
+            <h3 data-en="Assistant Director — <span style='color:var(--ink-soft)'>PR Academy</span>" data-bn="সহকারী পরিচালক — <span style='color:var(--ink-soft)'>পিআর একাডেমি</span>">Assistant Director — <span style="color:var(--ink-soft)">PR Academy</span></h3>
+            <ul>
+              <li data-en="Training program management" data-bn="প্রশিক্ষণ কর্মসূচি ব্যবস্থাপনা">Training program management</li>
+              <li data-en="Curriculum development" data-bn="পাঠ্যক্রম উন্নয়ন">Curriculum development</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="period">2021 – 2025</span>
+          <div class="timeline__body">
+            <h3 data-en="Professional Office & Graphic Trainer" data-bn="প্রফেশনাল অফিস ও গ্রাফিক প্রশিক্ষক">Professional Office & Graphic Trainer</h3>
+            <ul><li data-en="Provided professional training in office applications and graphic design." data-bn="অফিস অ্যাপ্লিকেশন এবং গ্রাফিক ডিজাইনে পেশাদার প্রশিক্ষণ প্রদান।">Provided professional training in office applications and graphic design.</li></ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- টিচিং সেকশন -->
+    <section id="teaching" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">04 — SKILLS & IMPACT</span>
+        <h2 class="section__title" data-en="What I Teach" data-bn="আমি যা শেখাই">What I Teach</h2>
+      </header>
+      
+      <div class="card-grid slide-right">
+        <article class="card">
+          <h3 data-en="Basic to Advanced Office" data-bn="বেসিক থেকে অ্যাডভান্সড অফিস">Basic to Advanced Office</h3>
+          <ul>
+            <li data-en="Computer Fundamentals" data-bn="কম্পিউটার ফান্ডামেন্টাল">Computer Fundamentals</li>
+            <li data-en="MS Word · Excel · PowerPoint" data-bn="এমএস ওয়ার্ড · এক্সেল · পাওয়ারপয়েন্ট">MS Word · Excel · PowerPoint</li>
+            <li data-en="Professional Office Applications" data-bn="প্রফেশনাল অফিস অ্যাপ্লিকেশন">Professional Office Applications</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 data-en="Graphic Design" data-bn="গ্রাফিক ডিজাইন">Graphic Design</h3>
+          <ul>
+            <li data-en="Photoshop · Illustrator · Canva" data-bn="ফটোশপ · ইলাস্ট্রেটর · ক্যানভা">Photoshop · Illustrator · Canva</li>
+            <li data-en="Logo & Brand Identity" data-bn="লোগো ও ব্র্যান্ড আইডেন্টিটি">Logo & Brand Identity</li>
+            <li data-en="Social Media Design" data-bn="সোশ্যাল মিডিয়া ডিজাইন">Social Media Design</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 data-en="HSC ICT" data-bn="এইচএসসি আইসিটি">HSC ICT</h3>
+          <ul>
+            <li data-en="Theory & Practical" data-bn="থিওরি ও প্র্যাকটিক্যাল">Theory & Practical</li>
+            <li data-en="HTML & Programming Fundamentals" data-bn="এইচটিএমএল ও প্রোগ্রামিং ফান্ডামেন্টাল">HTML & Programming Fundamentals</li>
+            <li data-en="Board Exam Preparation" data-bn="বোর্ড পরীক্ষার প্রস্তুতি">Board Exam Preparation</li>
+          </ul>
+        </article>
+        <article class="card" style="border: 2px solid var(--accent-2);">
+          <h3 style="color: var(--accent-2);" data-en="Digital Marketing" data-bn="ডিজিটাল মার্কেটিং">Digital Marketing</h3>
+          <ul>
+            <li data-en="Social Media Marketing" data-bn="সোশ্যাল মিডিয়া মার্কেটিং">Social Media Marketing</li>
+            <li data-en="SEO & Content Strategy" data-bn="এসইও ও কন্টেন্ট স্ট্র্যাটেজি">SEO & Content Strategy</li>
+            <li data-en="Facebook & Google Ads" data-bn="ফেসবুক ও গুগল অ্যাডস">Facebook & Google Ads</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="slide-left" style="margin-top: 64px;">
+        <h3 style="font-size: 2rem; color: var(--accent); margin-bottom: 8px;" data-en="Total Trained Students: 375+" data-bn="মোট প্রশিক্ষণপ্রাপ্ত শিক্ষার্থী: ৩৭৫+">Total Trained Students: 375+</h3>
+        <div class="stats-grid">
+          <div class="stat-box"><h4>85+</h4><p data-en="Graphic Design" data-bn="গ্রাফিক ডিজাইন">Graphic Design</p></div>
+          <div class="stat-box"><h4>120+</h4><p data-en="Basic Office" data-bn="বেসিক অফিস">Basic Office</p></div>
+          <div class="stat-box"><h4>100+</h4><p data-en="Professional Office" data-bn="প্রফেশনাল অফিস">Professional Office</p></div>
+          <div class="stat-box"><h4>60+</h4><p data-en="HSC ICT" data-bn="এইচএসসি আইসিটি">HSC ICT</p></div>
+          <div class="stat-box"><h4>10+</h4><p data-en="Others" data-bn="অন্যান্য">Others</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- এআই এক্সপার্টাইজ সেকশন -->
+    <section id="ai" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">05 — FUTURE VISION</span>
+        <h2 class="section__title" data-en="AI Expertise & Vision" data-bn="এআই দক্ষতা ও ভিশন">AI Expertise & Vision</h2>
+      </header>
+      <div class="ai-card slide-up">
+        <h3 data-en="Empowering the Future with AI" data-bn="এআই দিয়ে ভবিষ্যৎ গড়া">Empowering the Future with AI</h3>
+        <p data-en="I am deeply passionate about the transformative power of Artificial Intelligence. As an AI enthusiast and expert, I continuously explore cutting-edge AI tools to integrate into education and creative workflows. My vision is to leverage AI to make learning more personalized, accessible, and engaging for everyone. I believe AI is not here to replace human creativity, but to amplify it positively." 
+           data-bn="আমি কৃত্রিম বুদ্ধিমত্তার (AI) রূপান্তরকারী শক্তির প্রতি গভীরভাবে অনুরক্ত। একজন এআই এনথুসিয়াস্ট এবং এক্সপার্ট হিসেবে, আমি শিক্ষা এবং ক্রিয়েটিভ ওয়ার্কফ্লোতে যুক্ত করার জন্য সর্বাধুনিক এআই টুলগুলো নিয়মিত অন্বেষণ করি। আমার লক্ষ্য হলো এআই ব্যবহার করে সবার জন্য শেখার প্রক্রিয়াকে আরও ব্যক্তিগতকৃত, সহজলভ্য এবং আকর্ষণীয় করে তোলা। আমি বিশ্বাস করি এআই মানুষের সৃজনশীলতা প্রতিস্থাপন করতে নয়, বরং ইতিবাচকভাবে এটিকে বাড়িয়ে তুলতে এসেছে।">
+          I am deeply passionate about the transformative power of Artificial Intelligence. As an AI enthusiast and expert, I continuously explore cutting-edge AI tools to integrate into education and creative workflows. My vision is to leverage AI to make learning more personalized, accessible, and engaging for everyone. I believe AI is not here to replace human creativity, but to amplify it positively.
+        </p>
+        <div class="ai-badges">
+          <span class="ai-badge" data-en="AI Tools Expert" data-bn="এআই টুলস এক্সপার্ট">AI Tools Expert</span>
+          <span class="ai-badge" data-en="Prompt Engineering" data-bn="প্রম্পট ইঞ্জিনিয়ারিং">Prompt Engineering</span>
+          <span class="ai-badge" data-en="AI in Education" data-bn="শিক্ষায় এআই">AI in Education</span>
+          <span class="ai-badge" data-en="Creative Automation" data-bn="ক্রিয়েটিভ অটোমেশন">Creative Automation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- মাই প্রজেক্টস -->
+    <section id="projects" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">06 — PORTFOLIO</span>
+        <h2 class="section__title" data-en="My Projects" data-bn="আমার প্রজেক্টসমূহ">My Projects</h2>
+      </header>
+      <div class="slide-right" style="background: var(--card-bg); padding: 48px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border); text-align: center;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--ink);" data-en="View My Creative Work" data-bn="আমার ক্রিয়েটিভ কাজ দেখুন">View My Creative Work</h3>
+        <p style="font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 32px;" data-en="I have showcased my graphic design, branding, and web projects on Behance. Click below to explore." data-bn="আমি বিহ্যান্সে আমার গ্রাফিক ডিজাইন, ব্র্যান্ডিং এবং ওয়েব প্রজেক্টগুলো প্রদর্শন করেছি। নিচে ক্লিক করে দেখুন।">I have showcased my graphic design, branding, and web projects on Behance. Click below to explore.</p>
+        <a href="https://www.behance.net/techrashad" target="_blank" class="btn btn--primary" style="font-size: 1.1rem; padding: 18px 40px;" data-en="Visit My Behance Profile ↗" data-bn="আমার বিহ্যান্স প্রোফাইল দেখুন ↗">Visit My Behance Profile ↗</a>
+      </div>
+    </section>
+
+    <!-- সার্টিফিকেট সেকশন -->
+    <section id="certifications" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">07 — QUALIFICATIONS</span>
+        <h2 class="section__title" data-en="Certifications" data-bn="সার্টিফিকেট">Certifications</h2>
+      </header>
+      <div class="cert-grid slide-right">
+        <div class="cert-card">
+          <h3 data-en="Master Crafts Person (MCP) — IT Support Technician" data-bn="মাস্টার ক্রাফটস পারসন (এমসিপি) — আইটি সাপোর্ট টেকনিশিয়ান">Master Crafts Person (MCP) — IT Support Technician</h3>
+          <p>BRAC — Skills Development Programme (PROSPER)</p>
+          <span>ID: MID-00056213 (2025)</span>
+        </div>
+        <div class="cert-card">
+          <h3 data-en="Professional Office Course (IT Support Technician)" data-bn="প্রফেশনাল অফিস কোর্স (আইটি সাপোর্ট টেকনিশিয়ান)">Professional Office Course (IT Support Technician)</h3>
+          <p>BRAC — Skills Development Programme</p>
+          <span>March 2020 Batch</span>
+        </div>
+        <div class="cert-card">
+          <h3 data-en="Mobile Application Development (Cross Platform)" data-bn="মোবাইল অ্যাপ্লিকেশন ডেভেলপমেন্ট (ক্রস প্ল্যাটফর্ম)">Mobile Application Development (Cross Platform)</h3>
+          <p>ICT Division, Digital Bangladesh</p>
+          <span>Reg No: 926364 (Feb 2022)</span>
+        </div>
+        <div class="cert-card">
+          <h3 data-en="Computer & Professional Office Training" data-bn="কম্পিউটার ও প্রফেশনাল অফিস ট্রেনিং">Computer & Professional Office Training</h3>
+          <p>Govt. of Bangladesh — Social Welfare Ministry</p>
+          <span>Published: July 2021</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ইনস্টিটিউট সেকশন -->
+    <section id="institute" class="section">
+      <div class="institute__card slide-up">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-2); letter-spacing: 2px; font-weight: 800;" data-en="FOUNDER & CEO" data-bn="প্রতিষ্ঠাতা ও সিইও">FOUNDER & CEO</span>
+          <h2 class="institute__title">Creative AI Institute</h2>
+          <p class="institute__tagline" data-en="Computer Skill & Academic Excellence" data-bn="কম্পিউটার স্কিল ও একাডেমিক এক্সিলেন্স">Computer Skill & Academic Excellence</p>
+        </div>
+        <div>
+          <p style="font-size: 1.1rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 24px;" data-en="Leading an educational organization in Faridgonj, Chandpur, focused on practical computer education, professional training, academic programs, and student mentoring." data-bn="ফরিদগঞ্জ, চাঁদপুরে একটি শিক্ষা প্রতিষ্ঠান পরিচালনা করছি, যা ব্যবহারিক কম্পিউটার শিক্ষা, পেশাদার প্রশিক্ষণ, একাডেমিক প্রোগ্রাম এবং শিক্ষার্থীদের মেন্টরিংয়ে মনোযোগী।">Leading an educational organization in Faridgonj, Chandpur, focused on practical computer education, professional training, academic programs, and student mentoring.</p>
+          <a href="https://creativeaiinstitute.netlify.app" target="_blank" class="btn btn--primary" data-en="Explore Institute ↗" data-bn="ইনস্টিটিউট দেখুন ↗">Explore Institute ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- কানেক্ট সেকশন -->
+    <section id="connect" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">08 — GET IN TOUCH</span>
+        <h2 class="section__title" data-en="Let's Connect" data-bn="যোগাযোগ করুন">Let's Connect</h2>
+        <p class="section__lede" data-en="Feel free to reach out through any of my social profiles or contact me directly on WhatsApp." data-bn="আমার যেকোনো সোশ্যাল প্রোফাইলের মাধ্যমে যোগাযোগ করুন অথবা সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।">Feel free to reach out through any of my social profiles or contact me directly on WhatsApp.</p>
+      </header>
+      
+      <div class="slide-right" style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
+        <a href="https://www.facebook.com/TechRashadRaihan" target="_blank" class="btn btn--ghost">Facebook</a>
+        <a href="https://www.instagram.com/techrashadraihan" target="_blank" class="btn btn--ghost">Instagram</a>
+        <a href="https://www.linkedin.com/in/techrashedraihan" target="_blank" class="btn btn--ghost">LinkedIn</a>
+        <a href="https://www.behance.net/techrashad" target="_blank" class="btn btn--ghost">Behance</a>
+      </div>
+
+      <div class="slide-up" style="background: var(--card-bg); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border); text-align: center;">
+        <h3 style="font-size: 1.6rem; margin-bottom: 16px; color: var(--ink);" data-en="Want to discuss a project or training?" data-bn="কোনো প্রজেক্ট বা প্রশিক্ষণ নিয়ে আলোচনা করতে চান?">Want to discuss a project or training?</h3>
+        <p style="font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 24px;" data-en="If you want to contact me directly, you can easily message me on WhatsApp." data-bn="যদি আপনি সরাসরি আমার সাথে যোগাযোগ করতে চান, তবে সহজেই হোয়াটসঅ্যাপে মেসেজ করতে পারেন।">If you want to contact me directly, you can easily message me on WhatsApp.</p>
+        <a href="https://wa.me/8801407774872" target="_blank" class="btn btn--primary" style="background: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);" data-en="Contact Me on WhatsApp ↗" data-bn="হোয়াটসঅ্যাপে যোগাযোগ করুন ↗">Contact Me on WhatsApp ↗</a>
+        <p style="margin-top: 16px; font-size: 0.95rem; color: var(--ink-soft);" data-en="Or Email: <a href='mailto:techrashad.03@gmail.com' style='color: var(--accent); font-weight: 600;'>techrashad.03@gmail.com</a>" data-bn="অথবা ইমেইল করুন: <a href='mailto:techrashad.03@gmail.com' style='color: var(--accent); font-weight: 600;'>techrashad.03@gmail.com</a>">Or Email: <a href="mailto:techrashad.03@gmail.com" style="color: var(--accent); font-weight: 600;">techrashad.03@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p data-en="&copy; 2026 MD Rashed Raihan. All rights reserved." data-bn="&copy; ২০২৬ মোঃ রাশেদ রায়হান। সর্বস্বত্ব সংরক্ষিত।">&copy; 2026 MD Rashed Raihan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ১. টাইপিং অ্যানিমেশন
+    const textArray = ["Trainer", "Graphic Designer", "ICT Teacher", "Entrepreneur"];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex < textArray[textArrayIndex].length) {
+        document.getElementById("typewriter").textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      } else {
+        setTimeout(erase, newTextDelay);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        document.getElementById("typewriter").textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      } else {
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 1100);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(type, newTextDelay + 250);
+    });
+
+    // ২. ডার্ক ও লাইট থিম টগল
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    function toggleTheme() {
+      if (htmlElement.getAttribute('data-theme') === 'dark') {
+        htmlElement.setAttribute('data-theme', 'light');
+        themeToggleBtn.textContent = '🌙';
+      } else {
+        htmlElement.setAttribute('data-theme', 'dark');
+        themeToggleBtn.textContent = '☀️';
+      }
+    }
+
+    // ৩. বাংলা ও ইংরেজি ল্যাঙ্গুয়েজ টগল
+    let currentLang = 'en';
+    const langToggleBtn = document.getElementById('langToggle');
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      langToggleBtn.textContent = currentLang === 'en' ? 'বাংলা' : 'English';
+      
+      const elements = document.querySelectorAll('[data-en]');
+      elements.forEach(el => {
+        if (currentLang === 'bn') {
+          el.innerHTML = el.getAttribute('data-bn');
+        } else {
+          el.innerHTML = el.getAttribute('data-en');
+        }
+      });
+    }
+
+    // ৪. স্ক্রল অ্যানিমেশন
+    document.addEventListener("DOMContentLoaded", function() {
+      const animatedElements = document.querySelectorAll(".slide-left, .slide-right, .slide-up");
+      
+      const animateOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+        
+        animatedElements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible) {
+            el.classList.add("active");
+          }
+        });
+      };
+      
+      window.addEventListener("scroll", animateOnScroll);
+      animateOnScroll(); 
+    });
+  </script>
+</body>
+</html>
