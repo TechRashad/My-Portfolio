@@ -7,6 +7,9 @@
   <meta name="description" content="Portfolio of MD Rashed Raihan — Graphic Designer, Web Developer, Professional Trainer and Founder & CEO of Creative AI Institute.">
   <link rel="icon" href="image/Rashed.png">
   
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- স্ট্যান্ডার্ড এবং ক্লিন ফন্ট (Inter + Hind Siliguri for Bangla) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,8 @@
       --card-border: rgba(255, 255, 255, 0.9);
       --nav-bg: rgba(255, 255, 255, 0.8);
       --line: rgba(0,0,0,0.08);
+      --social-bg: rgba(255, 255, 255, 0.8);
+      --star-color: #FFB800;
     }
 
     [data-theme="dark"] {
@@ -42,6 +47,8 @@
       --card-border: rgba(255, 255, 255, 0.1);
       --nav-bg: rgba(15, 16, 22, 0.8);
       --line: rgba(255,255,255,0.1);
+      --social-bg: rgba(30, 30, 40, 0.8);
+      --star-color: #FFD700;
     }
 
     :root{
@@ -142,38 +149,59 @@
 
     .hero__sub{font-size:1.2rem;max-width:44ch;color:var(--ink-soft); line-height: 1.7;}
     .hero__sub strong{color:var(--ink); font-weight: 700;}
-    .hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 40px}
+    .hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 24px}
     
-    .hero__portrait-container {
-      position: relative; width: 100%; max-width: 400px; margin: 0 auto;
-      border-radius: 50%; padding: 10px;
-      box-shadow: 0 0 30px rgba(108, 77, 255, 0.3), 0 0 60px rgba(255, 77, 148, 0.2);
-      animation: pulseGlow 3s infinite alternate;
+    /* Social Icons Style */
+    .hero__socials {
+      display: flex; gap: 12px; margin-top: 10px;
     }
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 20px rgba(108, 77, 255, 0.3), 0 0 40px rgba(255, 77, 148, 0.1); }
-      100% { box-shadow: 0 0 40px rgba(108, 77, 255, 0.6), 0 0 80px rgba(255, 77, 148, 0.4); }
+    .hero__socials a {
+      display: flex; align-items: center; justify-content: center;
+      width: 45px; height: 45px; border-radius: 50%;
+      background: var(--social-bg); color: var(--ink);
+      font-size: 1.2rem; transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid var(--card-border);
+    }
+    .hero__socials a:hover {
+      background: var(--accent); color: #fff; transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 20px rgba(108, 77, 255, 0.3);
+    }
+    
+    /* Chikon (Sleek) Picture Board */
+    .hero__portrait-container {
+      position: relative; width: 100%; max-width: 380px; margin: 0 auto;
+      border-radius: 50%; padding: 6px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 15px 35px rgba(108, 77, 255, 0.3);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
     }
     .hero__portrait-container::before {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), #00E5FF, var(--accent));
-      animation: spinRing 4s linear infinite; z-index: 1;
+      content: ''; position: absolute; inset: -5px; border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent, var(--accent), transparent, var(--accent-2), transparent);
+      animation: spinRing 4s linear infinite; z-index: 0;
+      filter: blur(10px);
     }
     @keyframes spinRing { 100% { transform: rotate(360deg); } }
     
     .hero__portrait{
       position:relative; width: 100%; aspect-ratio:1/1; border-radius:50%;
-      overflow:hidden; background: var(--card-bg); z-index: 2; border: 4px solid var(--card-border);
+      overflow:hidden; background: var(--card-bg); z-index: 2; border: 4px solid var(--bg);
     }
     .hero__portrait img{width:100%;height:100%;object-fit:cover; object-position: top center ; transition: transform .5s ease;}
-    .hero__portrait:hover img{transform: scale(1.1);}
+    .hero__portrait:hover img{transform: scale(1.08);}
 
     /* ====== বাটন (Buttons) ====== */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4em;padding:16px 32px;border-radius:50px;font-weight:600;font-size:1rem;transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);border:none;cursor:pointer;font-family:inherit; position: relative; overflow: hidden;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:16px 32px;border-radius:50px;font-weight:600;font-size:1rem;transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);border:none;cursor:pointer;font-family:inherit; position: relative; overflow: hidden;}
     .btn--primary{background:linear-gradient(45deg, var(--accent), #9A85FF);color:#fff; box-shadow: 0 10px 25px rgba(108, 77, 255, 0.4);}
     .btn--primary:hover{transform:translateY(-4px) scale(1.02); box-shadow: 0 15px 35px rgba(108, 77, 255, 0.6);}
     .btn--ghost{background:var(--card-bg);color:var(--ink);border:2px solid var(--card-border); backdrop-filter: blur(10px); box-shadow: 0 8px 20px rgba(0,0,0,0.05);}
-    .btn--ghost:hover{background:var(--card-hover);color:var(--accent);transform:translateY(-4px) scale(1.02);}
+    .btn--ghost:hover{background:var(--card-hover);color:var(--accent);transform:translateY(-4px) scale(1.02); border-color: var(--accent);}
     
     /* ====== গ্লাস কার্ড (Glassmorphism) ====== */
     .card-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -187,6 +215,25 @@
     .card h3{font-size:1.4rem;margin-bottom:20px; color: var(--accent);}
     .card ul{padding-left:20px;color:var(--ink-soft);margin:0; font-size: 1.05rem;}
     .card li{margin-bottom:10px;}
+
+    /* ====== More Info Bio Section ====== */
+    .more-info-btn {
+      background: var(--accent-2); color: #fff; border: none; padding: 12px 24px;
+      border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 20px;
+      transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .more-info-btn:hover { background: var(--accent); transform: translateY(-2px); }
+    
+    .full-bio {
+      display: none; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .full-bio h4 { color: var(--accent); margin-top: 24px; margin-bottom: 12px; font-size: 1.3rem; }
+    .full-bio p { margin-bottom: 16px; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.8; }
+    .full-bio ul { margin-bottom: 16px; padding-left: 20px; color: var(--ink-soft); }
+    .full-bio li { margin-bottom: 8px; }
 
     /* ====== AI সেকশন ====== */
     .ai-card {
@@ -208,38 +255,15 @@
       right: -20px;
       transform: rotate(15deg);
     }
-    .ai-card h3 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .ai-card p {
-      font-size: 1.15rem;
-      color: var(--ink);
-      max-width: 800px;
-      margin: 0 auto 32px auto;
-      line-height: 1.8;
-    }
-    .ai-badges {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .ai-card h3 { font-size: clamp(2rem, 4vw, 3rem); color: var(--accent); margin-bottom: 16px; }
+    .ai-card p { font-size: 1.15rem; color: var(--ink); max-width: 800px; margin: 0 auto 32px auto; line-height: 1.8; }
+    .ai-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
     .ai-badge {
-      background: #fff;
-      color: var(--accent);
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      background: #fff; color: var(--accent); padding: 10px 20px; border-radius: 50px;
+      font-weight: 700; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       border: 1px solid var(--card-border);
     }
-    [data-theme="dark"] .ai-badge {
-      background: rgba(255,255,255,0.1);
-      color: var(--accent-2);
-    }
+    [data-theme="dark"] .ai-badge { background: rgba(255,255,255,0.1); color: var(--accent-2); }
 
     /* ====== টাইমলাইন ====== */
     .timeline{list-style:none;padding:0;border-left:3px dashed rgba(108, 77, 255, 0.4);margin-left:8px}
@@ -293,6 +317,41 @@
     .institute__title{font-size:clamp(2rem,4vw,3rem);color:var(--ink);}
     .institute__tagline{font-family:var(--font-mono);font-size:.9rem;color:var(--accent);letter-spacing:.08em;margin:12px 0 24px; font-weight: 700;}
 
+    /* ====== Solutions Section ====== */
+    .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .solution-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); padding: 32px;
+      border-radius: var(--radius); transition: all 0.3s ease; display: flex; flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .solution-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(108, 77, 255, 0.15); }
+    .solution-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+    .solution-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--ink); }
+    .solution-card p { color: var(--ink-soft); font-size: 1rem; margin: 0; }
+
+    /* ====== Student Reviews Section ====== */
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .review-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); padding: 30px;
+      border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .review-card:hover { transform: translateY(-5px); border-color: var(--accent-2); }
+    .review-course-tag {
+      display: inline-block; padding: 4px 12px; background: rgba(108, 77, 255, 0.1); color: var(--accent);
+      border-radius: 12px; font-size: 0.8rem; font-weight: 700; margin-bottom: 16px; font-family: var(--font-mono);
+    }
+    .review-stars { color: var(--star-color); margin-bottom: 16px; font-size: 1.1rem; letter-spacing: 2px; }
+    .review-text { font-size: 1.05rem; color: var(--ink-soft); line-height: 1.7; font-style: italic; margin-bottom: 24px; flex-grow: 1;}
+    .review-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .review-author .avatar {
+      width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; flex-shrink: 0;
+    }
+    .review-author-info h4 { margin: 0; font-size: 1.05rem; color: var(--ink); line-height: 1.3;}
+    .review-author-info span { font-size: 0.85rem; color: var(--accent-2); font-weight: 600; }
+
     /* ====== ফুটার ====== */
     .site-footer{padding:48px var(--gutter);text-align:center;font-size:.95rem; border-top: 1px solid var(--line); margin-top: 48px; font-weight: 500; color: var(--ink-soft);}
     
@@ -309,8 +368,9 @@
       .hero{grid-template-columns:1fr; text-align:center; padding-top: 40px;}
       .hero__sub{max-width:100%; margin: 0 auto;}
       .hero__cta{justify-content:center;}
+      .hero__socials{justify-content:center;}
       .hero__typing { justify-content: center; }
-      .hero__portrait-container{max-width: 300px; margin-top: 40px;}
+      .hero__portrait-container{max-width: 280px; margin-top: 40px;}
       .institute__card{grid-template-columns:1fr;text-align:center}
     }
   </style>
@@ -327,9 +387,9 @@
         <li><a href="#about" data-en="About" data-bn="সম্পর্কে">About</a></li>
         <li><a href="#study" data-en="Study" data-bn="শিক্ষা">Study</a></li>
         <li><a href="#journey" data-en="Journey" data-bn="যাত্রা">Journey</a></li>
-        <li><a href="#teaching" data-en="Teaching" data-bn="শিক্ষাদান">Teaching</a></li>
+        <li><a href="#solutions" data-en="Solutions" data-bn="সমাধান">Solutions</a></li>
+        <li><a href="#reviews" data-en="Reviews" data-bn="রিভিউ">Reviews</a></li>
         <li><a href="#ai" data-en="AI Expertise" data-bn="এআই দক্ষতা">AI Expertise</a></li>
-        <li><a href="#projects" data-en="Projects" data-bn="প্রজেক্ট">Projects</a></li>
         <li><a href="#connect" data-en="Connect" data-bn="যোগাযোগ">Connect</a></li>
       </ul>
     </nav>
@@ -355,11 +415,22 @@
           <strong>Educator & Entrepreneur.</strong><br> I blend creativity, technology, and education
           to create meaningful digital experiences and empower the next generation through practical learning.
         </p>
+        
         <div class="hero__cta">
           <a href="#about" class="btn btn--primary" data-en="Explore My Journey →" data-bn="আমার যাত্রা দেখুন →">Explore My Journey →</a>
           <a href="#institute" class="btn btn--ghost" data-en="View My Institute" data-bn="আমার ইনস্টিটিউট দেখুন">View My Institute</a>
         </div>
+
+        <!-- Social Media Icons -->
+        <div class="hero__socials">
+          <a href="https://www.facebook.com/TechRashadRaihan" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/techrashedraihan" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@TechRashad" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/8801407774872" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
       </div>
+
+      <!-- Chikon (Sleek) Picture Board -->
       <div class="hero__portrait-container slide-up">
         <div class="hero__portrait">
           <img src="image/Rashed.png" alt="MD Rashed Raihan">
@@ -373,8 +444,8 @@
         <span class="section__num">01 — WHO AM I</span>
         <h2 class="section__title" data-en="About Me" data-bn="আমার সম্পর্কে">About Me</h2>
       </header>
-      <div class="slide-right" style="max-width: 800px; background: var(--card-bg); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border);">
-        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--ink-soft);" 
+      <div class="slide-right" style="background: var(--card-bg); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border);">
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--ink-soft);" 
            data-en="My journey started with a curiosity for technology, creativity, and learning. Over time I developed professional skills in <strong>Graphic Design</strong> and <strong>Web Development</strong>, and discovered a deeper passion — teaching. Today I combine creativity, technology, and education as a designer, trainer, educator, and the <strong>Founder & CEO of Creative AI Institute</strong>." 
            data-bn="আমার যাত্রা শুরু হয়েছিল প্রযুক্তি, সৃজনশীলতা এবং শেখার কৌতূহল দিয়ে। সময়ের সাথে সাথে আমি <strong>গ্রাফিক ডিজাইন</strong> এবং <strong>ওয়েব ডেভেলপমেন্টে</strong> পেশাদার দক্ষতা অর্জন করি এবং শিক্ষাদানের প্রতি গভীর আগ্রহ আবিষ্কার করি। আজ আমি একজন ডিজাইনার, প্রশিক্ষক, শিক্ষাবিদ এবং <strong>ক্রিয়েটিভ এআই ইনস্টিটিউটের প্রতিষ্ঠাতা ও সিইও</strong> হিসেবে সৃজনশীলতা, প্রযুক্তি এবং শিক্ষাকে একত্রিত করি।">
           My journey started with a curiosity for technology, creativity, and learning. Over time I developed
@@ -382,6 +453,73 @@
           a deeper passion — teaching. Today I combine creativity, technology, and education as a designer, trainer, educator, and
           the <strong>Founder & CEO of Creative AI Institute</strong>.
         </p>
+        
+        <button class="more-info-btn" id="moreInfoBtn" onclick="toggleBio()">
+          <span data-en="More Info" data-bn="আরও জানুন">More Info</span> <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <!-- Full Biography (Hidden by default) -->
+        <div class="full-bio" id="fullBio">
+          
+          <!-- English Version -->
+          <div id="bio-en">
+            <h4> Biography</h4>
+            <p>I am MD Rashed Raihan, an Educator, Professional Trainer, and Founder of Creative AI Institute. I completed my graduation in the Department of English under the National University of Bangladesh. I completed my SSC and HSC from the Science Group.</p>
+            <p>My journey in education and technology began during the COVID-19 pandemic. What started as an interest in learning and exploring technology gradually developed into a passion for teaching, training, and helping others build practical digital skills.</p>
+            <p>Over the years, I have worked on various projects, completed several professional training programs offered by government initiatives, and earned a Trainer Certification from BRAC. I have more than five years of experience in training and helping learners develop practical skills.</p>
+            
+            <h4>My Journey & Experience</h4>
+            <p>Since the beginning of my journey during COVID-19, I have continuously explored technology, developed different projects, and worked to make digital learning easier and more practical. Throughout this journey, I have focused on gaining knowledge, improving my skills, and sharing what I have learned with others. As a trainer, one of my greatest motivations is seeing learners transform their knowledge into practical skills and use those skills to build their careers.</p>
+            
+            <h4>Skills & Expertise</h4>
+            <ul>
+                <li><strong>Microsoft Office:</strong> Microsoft Word, Excel, and PowerPoint.</li>
+                <li><strong>Artificial Intelligence:</strong> Exploring and utilizing modern AI tools.</li>
+                <li><strong>Web Design & Development:</strong> Designing modern, responsive, and user-friendly websites.</li>
+                <li><strong>Graphic Design:</strong> Digital design and creative content development.</li>
+                <li><strong>Digital Marketing:</strong> Digital marketing concepts and practices.</li>
+                <li><strong>Teaching & Training:</strong> More than five years of training experience.</li>
+                <li><strong>Technical Support:</strong> Troubleshooting computer and software-related problems.</li>
+                <li><strong>Project Development:</strong> Creating practical projects to improve real-world skills.</li>
+            </ul>
+
+            <h4>Creative AI Institute – A New Beginning in 2026</h4>
+            <p>In 2026, a new chapter of my journey began with the establishment of Creative AI Institute. The main objective is to make technology and professional skills easier for students to learn through simple, practical, and effective teaching methods. We believe learning should go beyond textbooks. Our mission is to prepare students for the modern digital world by connecting education, technology, and practical experience.</p>
+            
+            <h4>My Vision & Mission</h4>
+            <p>My vision is to make modern technology, Artificial Intelligence, and professional digital skills accessible to the next generation. Through my work and Creative AI Institute, I aim to make technology education simple, help students develop practical skills, encourage real-world project-based learning, and prepare learners for local and international career opportunities.</p>
+          </div>
+
+          <!-- Bangla Version -->
+          <div id="bio-bn" style="display: none;">
+            <h4> জীবনী</h4>
+            <p>আমি MD Rashed Raihan। একজন শিক্ষাবিদ, পেশাদার প্রশিক্ষক এবং Creative AI Institute-এর প্রতিষ্ঠাতা। আমি National University-এর English বিভাগ থেকে স্নাতক সম্পন্ন করেছি। এর আগে Science Group থেকে SSC ও HSC সম্পন্ন করেছি।</p>
+            <p>আমার শিক্ষা ও প্রযুক্তি নিয়ে কাজ করার যাত্রা শুরু হয় COVID-19 মহামারির সময় থেকে। শুরুতে প্রযুক্তি সম্পর্কে শেখা ও জানার আগ্রহ থাকলেও ধীরে ধীরে সেটি শিক্ষা, প্রশিক্ষণ এবং মানুষের মধ্যে ব্যবহারিক ডিজিটাল দক্ষতা ছড়িয়ে দেওয়ার আগ্রহে পরিণত হয়।</p>
+            <p>এই দীর্ঘ যাত্রায় আমি বিভিন্ন ধরনের প্রজেক্ট তৈরি করেছি, সরকারি উদ্যোগে আয়োজিত একাধিক প্রশিক্ষণ সম্পন্ন করেছি এবং BRAC থেকে Trainer হিসেবে Certification অর্জন করেছি। একজন প্রশিক্ষক হিসেবে আমার পাঁচ বছরেরও বেশি সময়ের অভিজ্ঞতা রয়েছে।</p>
+            
+            <h4>আমার যাত্রা ও অভিজ্ঞতা</h4>
+            <p>COVID-19 সময় থেকে শুরু হওয়া এই যাত্রায় আমি প্রতিনিয়ত নতুন প্রযুক্তি সম্পর্কে জেনেছি, বিভিন্ন প্রজেক্টে কাজ করেছি এবং অর্জিত জ্ঞান অন্যদের মাঝে ছড়িয়ে দেওয়ার চেষ্টা করেছি। নিজের দক্ষতা বৃদ্ধি এবং পেশাগত উন্নয়নের জন্য বিভিন্ন প্রশিক্ষণ গ্রহণ করেছি। একজন প্রশিক্ষক হিসেবে আমার কাছে সবচেয়ে আনন্দের বিষয় হলো, শিক্ষার্থীরা যখন শেখা বিষয়গুলো বাস্তব জীবনে প্রয়োগ করতে পারে।</p>
+            
+            <h4>দক্ষতা ও বিশেষায়িত ক্ষেত্র</h4>
+            <ul>
+                <li><strong>Microsoft Office:</strong> Microsoft Word, Excel ও PowerPoint।</li>
+                <li><strong>Artificial Intelligence:</strong> আধুনিক AI Tools-এর ব্যবহার ও প্রয়োগ।</li>
+                <li><strong>Web Design & Development:</strong> আধুনিক, রেসপনসিভ ও ব্যবহারবান্ধব ওয়েবসাইট ডিজাইন।</li>
+                <li><strong>Graphic Design:</strong> ডিজিটাল ডিজাইন ও সৃজনশীল কনটেন্ট তৈরি।</li>
+                <li><strong>Digital Marketing:</strong> ডিজিটাল মার্কেটিংয়ের বিভিন্ন বিষয় ও কৌশল।</li>
+                <li><strong>Teaching & Training:</strong> পাঁচ বছরেরও বেশি সময়ের প্রশিক্ষণ অভিজ্ঞতা।</li>
+                <li><strong>Technical Support:</strong> কম্পিউটার ও সফটওয়্যার-সংক্রান্ত সমস্যার সমাধান।</li>
+                <li><strong>Project Development:</strong> ব্যবহারিক দক্ষতা বৃদ্ধির জন্য বাস্তবভিত্তিক প্রজেক্ট তৈরি।</li>
+            </ul>
+
+            <h4>Creative AI Institute – ২০২৬ সালে নতুন যাত্রা</h4>
+            <p>২০২৬ সালে প্রতিষ্ঠিত হয় Creative AI Institute। এর মূল উদ্দেশ্য হলো শিক্ষার্থীদের কাছে প্রযুক্তি ও কর্মক্ষেত্রে প্রয়োজনীয় দক্ষতাগুলো সহজ পদ্ধতিতে শেখার সুযোগ তৈরি করা। আমরা বিশ্বাস করি, শিক্ষা শুধু বইয়ের পাতা কিংবা তাত্ত্বিক জ্ঞানের মধ্যে সীমাবদ্ধ থাকা উচিত নয়। আমাদের মূল লক্ষ্য হলো বাস্তব প্রজেক্টের মাধ্যমে শিক্ষার্থীদের দক্ষ, আত্মবিশ্বাসী এবং কর্মজীবনের জন্য প্রস্তুত করে তোলা।</p>
+            
+            <h4>আমার লক্ষ্য ও ভবিষ্যৎ পরিকল্পনা</h4>
+            <p>আমার ভবিষ্যৎ লক্ষ্য হলো Artificial Intelligence, আধুনিক প্রযুক্তি এবং কর্মক্ষেত্রে প্রয়োজনীয় ডিজিটাল দক্ষতাগুলো পরবর্তী প্রজন্মের সামনে সহজভাবে উপস্থাপন করা। আমি এমন একটি শেখার পরিবেশ তৈরি করতে চাই, যেখানে শিক্ষার্থীরা শুধু প্রযুক্তির ব্যবহার শিখবে না, বরং বাস্তব জীবনে কীভাবে প্রযুক্তিকে কাজে লাগিয়ে নিজেদের কর্মসংস্থানের সুযোগ তৈরি করা যায়, সেটিও বুঝতে পারবে।</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -415,7 +553,7 @@
           <span class="period">2016 – 2017</span>
           <div class="timeline__body">
             <h4 data-en="Secondary School Certificate (SSC)" data-bn="মাধ্যমিক সার্টিফিকেট (এসএসসি)">Secondary School Certificate (SSC)</h4>
-            <h3>Faridganj A.R. Pilot High School</h3>
+            <h3>Faridganj A.R. Pilot Government High School</h3>
             <ul><li data-en="Location: Chandpur, Bangladesh" data-bn="অবস্থান: চাঁদপুর, বাংলাদেশ">Location: Chandpur, Bangladesh</li></ul>
           </div>
         </li>
@@ -460,64 +598,239 @@
       </ol>
     </section>
 
-    <!-- টিচিং সেকশন -->
-    <section id="teaching" class="section">
+    <!-- Institute Solutions -->
+    <section id="solutions" class="section">
       <header class="section__head slide-left">
-        <span class="section__num">04 — SKILLS & IMPACT</span>
-        <h2 class="section__title" data-en="What I Teach" data-bn="আমি যা শেখাই">What I Teach</h2>
+        <span class="section__num">04 — OUR SERVICES</span>
+        <h2 class="section__title" data-en="Institute Solutions" data-bn="ইনস্টিটিউটের সমাধান">Institute Solutions</h2>
+        <p class="section__lede" data-en="We provide all the solutions you need at Creative AI Institute, combining technology and academic excellence." data-bn="ক্রিয়েটিভ এআই ইনস্টিটিউটে আমরা প্রযুক্তি ও একাডেমিক শিক্ষার সমন্বয় ঘটিয়েছি। আপনার প্রয়োজনীয় সব সমাধান এখানেই পাবেন।">We provide all the solutions you need at Creative AI Institute, combining technology and academic excellence.</p>
       </header>
       
-      <div class="card-grid slide-right">
-        <article class="card">
-          <h3 data-en="Basic to Advanced Office" data-bn="বেসিক থেকে অ্যাডভান্সড অফিস">Basic to Advanced Office</h3>
-          <ul>
-            <li data-en="Computer Fundamentals" data-bn="কম্পিউটার ফান্ডামেন্টাল">Computer Fundamentals</li>
-            <li data-en="MS Word · Excel · PowerPoint" data-bn="এমএস ওয়ার্ড · এক্সেল · পাওয়ারপয়েন্ট">MS Word · Excel · PowerPoint</li>
-            <li data-en="Professional Office Applications" data-bn="প্রফেশনাল অফিস অ্যাপ্লিকেশন">Professional Office Applications</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 data-en="Graphic Design" data-bn="গ্রাফিক ডিজাইন">Graphic Design</h3>
-          <ul>
-            <li data-en="Photoshop · Illustrator · Canva" data-bn="ফটোশপ · ইলাস্ট্রেটর · ক্যানভা">Photoshop · Illustrator · Canva</li>
-            <li data-en="Logo & Brand Identity" data-bn="লোগো ও ব্র্যান্ড আইডেন্টিটি">Logo & Brand Identity</li>
-            <li data-en="Social Media Design" data-bn="সোশ্যাল মিডিয়া ডিজাইন">Social Media Design</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3 data-en="HSC ICT" data-bn="এইচএসসি আইসিটি">HSC ICT</h3>
-          <ul>
-            <li data-en="Theory & Practical" data-bn="থিওরি ও প্র্যাকটিক্যাল">Theory & Practical</li>
-            <li data-en="HTML & Programming Fundamentals" data-bn="এইচটিএমএল ও প্রোগ্রামিং ফান্ডামেন্টাল">HTML & Programming Fundamentals</li>
-            <li data-en="Board Exam Preparation" data-bn="বোর্ড পরীক্ষার প্রস্তুতি">Board Exam Preparation</li>
-          </ul>
-        </article>
-        <article class="card" style="border: 2px solid var(--accent-2);">
-          <h3 style="color: var(--accent-2);" data-en="Digital Marketing" data-bn="ডিজিটাল মার্কেটিং">Digital Marketing</h3>
-          <ul>
-            <li data-en="Social Media Marketing" data-bn="সোশ্যাল মিডিয়া মার্কেটিং">Social Media Marketing</li>
-            <li data-en="SEO & Content Strategy" data-bn="এসইও ও কন্টেন্ট স্ট্র্যাটেজি">SEO & Content Strategy</li>
-            <li data-en="Facebook & Google Ads" data-bn="ফেসবুক ও গুগল অ্যাডস">Facebook & Google Ads</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="slide-left" style="margin-top: 64px;">
-        <h3 style="font-size: 2rem; color: var(--accent); margin-bottom: 8px;" data-en="Total Trained Students: 375+" data-bn="মোট প্রশিক্ষণপ্রাপ্ত শিক্ষার্থী: ৩৭৫+">Total Trained Students: 375+</h3>
-        <div class="stats-grid">
-          <div class="stat-box"><h4>85+</h4><p data-en="Graphic Design" data-bn="গ্রাফিক ডিজাইন">Graphic Design</p></div>
-          <div class="stat-box"><h4>120+</h4><p data-en="Basic Office" data-bn="বেসিক অফিস">Basic Office</p></div>
-          <div class="stat-box"><h4>100+</h4><p data-en="Professional Office" data-bn="প্রফেশনাল অফিস">Professional Office</p></div>
-          <div class="stat-box"><h4>60+</h4><p data-en="HSC ICT" data-bn="এইচএসসি আইসিটি">HSC ICT</p></div>
-          <div class="stat-box"><h4>10+</h4><p data-en="Others" data-bn="অন্যান্য">Others</p></div>
+      <div class="solution-grid slide-up">
+        <div class="solution-card">
+          <i class="fas fa-award solution-icon"></i>
+          <h3 data-en="Govt. Certified Computer Course" data-bn="সরকার অনুমোদিত কম্পিউটার কোর্স">Govt. Certified Computer Course</h3>
+          <p data-en="Get government-approved certificates after completing our computer courses." data-bn="কম্পিউটার কোর্স শেষে সরকার অনুমোদিত সার্টিফিকেট প্রদান করা হয়।">Get government-approved certificates after completing our computer courses.</p>
         </div>
+        <div class="solution-card">
+          <i class="fas fa-screwdriver-wrench solution-icon"></i>
+          <h3 data-en="Tech Related Solutions" data-bn="টেক রিলেটেড সমস্যার সমাধান">Tech Related Solutions</h3>
+          <p data-en="Solutions for any technology, computer, or software-related problems." data-bn="টেক রিলেটেড যেকোনো সমস্যার (কম্পিউটার/সফটওয়্যার) সমাধান।">Solutions for any technology, computer, or software-related problems.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-book-open solution-icon"></i>
+          <h3 data-en="HSC ICT (Theory & Practical)" data-bn="HSC ICT (থিওরি এবং প্র্যাকটিক্যাল)">HSC ICT (Theory & Practical)</h3>
+          <p data-en="Complete guidance for HSC ICT theory and practical exams." data-bn="HSC ICT থিওরি এবং প্র্যাকটিক্যাল পরীক্ষার জন্য পূর্ণাঙ্গ গাইডলাইন।">Complete guidance for HSC ICT theory and practical exams.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-calculator solution-icon"></i>
+          <h3 data-en="Math & Others" data-bn="ম্যাথ ও অন্যান্য বিষয়াবলী">Math & Others</h3>
+          <p data-en="Expert guidance in Mathematics and other academic subjects." data-bn="ম্যাথ (Math) ও অন্যান্য একাডেমিক বিষয়াবলীতে দক্ষ শিক্ষকের তত্ত্বাবধান।">Expert guidance in Mathematics and other academic subjects.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-palette solution-icon"></i>
+          <h3 data-en="Graphic Design Course" data-bn="গ্রাফিক ডিজাইন কোর্স">Graphic Design Course</h3>
+          <p data-en="Learn Photoshop, Illustrator, and professional design techniques." data-bn="ফটোশপ, ইলাস্ট্রেটর এবং প্রফেশনাল ডিজাইন টেকনিক শিখুন।">Learn Photoshop, Illustrator, and professional design techniques.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-child solution-icon"></i>
+          <h3 data-en="Kids Computer" data-bn="কিডস কম্পিউটার">Kids Computer</h3>
+          <p data-en="Fun and foundational computer learning specially designed for children." data-bn="শিশুদের জন্য মজার এবং মৌলিক কম্পিউটার শিক্ষা।">Fun and foundational computer learning specially designed for children.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-briefcase solution-icon"></i>
+          <h3 data-en="Basic to Professional Office" data-bn="বেসিক থেকে প্রফেশনাল অফিস">Basic to Professional Office</h3>
+          <p data-en="Master MS Word, Excel, PowerPoint from beginner to advanced level." data-bn="এমএস ওয়ার্ড, এক্সেল, পাওয়ারপয়েন্টে বিগিনার থেকে অ্যাডভান্সড লেভেল পর্যন্ত দক্ষতা অর্জন করুন।">Master MS Word, Excel, PowerPoint from beginner to advanced level.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-file-excel solution-icon" style="color: #1D6F42;"></i>
+          <h3 data-en="Excel Course" data-bn="এক্সেল কোর্স">Excel Course</h3>
+          <p data-en="Master advanced Excel formulas, data analysis, and dashboard creation." data-bn="অ্যাডভান্সড এক্সেল ফর্মুলা, ডেটা অ্যানালাইসিস এবং ড্যাশবোর্ড তৈরি করা শিখুন।">Master advanced Excel formulas, data analysis, and dashboard creation.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-robot solution-icon" style="color: var(--accent-2);"></i>
+          <h3 data-en="AI Course" data-bn="এআই কোর্স">AI Course</h3>
+          <p data-en="Learn prompt engineering, AI tools, and how to use AI for productivity." data-bn="প্রম্পট ইঞ্জিনিয়ারিং, এআই টুলস এবং উৎপাদনশীলতার জন্য এআই ব্যবহার করা শিখুন।">Learn prompt engineering, AI tools, and how to use AI for productivity.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-code solution-icon"></i>
+          <h3 data-en="Web Design & Development" data-bn="ওয়েব ডিজাইন ও ডেভেলপমেন্ট">Web Design & Development</h3>
+          <p data-en="Learn to build modern, responsive websites using HTML, CSS, and JavaScript." data-bn="HTML, CSS এবং JavaScript ব্যবহার করে আধুনিক, রেসপনসিভ ওয়েবসাইট তৈরি করা শিখুন।">Learn to build modern, responsive websites using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-bullhorn solution-icon"></i>
+          <h3 data-en="Digital Marketing" data-bn="ডিজিটাল মার্কেটিং">Digital Marketing</h3>
+          <p data-en="Master social media marketing, SEO, and paid advertising strategies." data-bn="সোশ্যাল মিডিয়া মার্কেটিং, এসইও এবং পেইড অ্যাডভার্টাইজিং কৌশল আয়ত্ত করুন।">Master social media marketing, SEO, and paid advertising strategies.</p>
+        </div>
+        <div class="solution-card">
+          <i class="fas fa-pen-fancy solution-icon"></i>
+          <h3 data-en="Handwriting" data-bn="হাতের লেখা (Handwriting)">Handwriting</h3>
+          <p data-en="Improve English and Bangla handwriting with expert guidance and practice." data-bn="দক্ষ নির্দেশনা ও অনুশীলনের মাধ্যমে ইংরেজি ও বাংলা হাতের লেখা সুন্দর করুন।">Improve English and Bangla handwriting with expert guidance and practice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Reviews Section -->
+    <section id="reviews" class="section">
+      <header class="section__head slide-left">
+        <span class="section__num">05 — TESTIMONIALS</span>
+        <h2 class="section__title" data-en="Student Reviews" data-bn="শিক্ষার্থীদের রিভিউ">Student Reviews</h2>
+        <p class="section__lede" data-en="What our students say about their learning experience at Creative AI Institute." data-bn="ক্রিয়েটিভ এআই ইনস্টিটিউটে আমাদের শিক্ষার্থীদের শেখার অভিজ্ঞতা সম্পর্কে তারা কী বলেন।">What our students say about their learning experience at Creative AI Institute.</p>
+      </header>
+      
+      <div class="review-grid slide-up">
+        
+        <!-- Review 1: Graphic Design -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Graphic Design</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="The Graphic Design course was amazing! I learned Photoshop and Illustrator from scratch. The practical projects helped me build a strong portfolio. As a teacher, these skills now help me create much better educational materials." data-bn="গ্রাফিক ডিজাইন কোর্সটি অসাধারণ ছিল! আমি শূন্য থেকে ফটোশপ এবং ইলাস্ট্রেটর শিখেছি। ব্যবহারিক প্রজেক্টগুলো আমাকে একটি শক্তিশালী পোর্টফোলিও তৈরি করতে সাহায্য করেছে। একজন শিক্ষক হিসেবে, এই দক্ষতাগুলো এখন আমাকে আরও ভালো শিক্ষামূলক উপকরণ তৈরি করতে সাহায্য করে।">The Graphic Design course was amazing! I learned Photoshop and Illustrator from scratch. The practical projects helped me build a strong portfolio. As a teacher, these skills now help me create much better educational materials.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="review-author-info">
+              <h4>MD Sabbir Ahmed</h4>
+              <span data-en="Madrasah Teacher" data-bn="মাদ্রাসা শিক্ষক">Madrasah Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2: MS Excel -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">MS Excel</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="Working in a corporate environment requires strong Excel skills. The advanced Excel course here changed everything for me. Now I can easily handle data analysis and create complex reports for my company." data-bn="কর্পোরেট পরিবেশে কাজ করার জন্য শক্তিশালী এক্সেল দক্ষতা প্রয়োজন। এখানকার অ্যাডভান্সড এক্সেল কোর্স আমার জন্য সবকিছু বদলে দিয়েছে। এখন আমি সহজেই ডেটা অ্যানালাইসিস সামলাতে পারি এবং আমার কোম্পানির জন্য জটিল রিপোর্ট তৈরি করতে পারি।">Working in a corporate environment requires strong Excel skills. The advanced Excel course here changed everything for me. Now I can easily handle data analysis and create complex reports for my company.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-user-tie"></i></div>
+            <div class="review-author-info">
+              <h4>MD Sohag</h4>
+              <span data-en="Nesma & Partners, Saudi Arabia" data-bn="নেসমা অ্যান্ড পার্টনার্স, সৌদি আরব">Nesma & Partners, Saudi Arabia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3: AI Course -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">AI Course</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="The AI Course is very up-to-date and practical. Learning prompt engineering and how to use AI tools for studying has increased my productivity significantly. Highly recommended for all students!" data-bn="এআই কোর্সটি খুবই আপ-টু-ডেট এবং ব্যবহারিক। প্রম্পট ইঞ্জিনিয়ারিং এবং পড়াশোনার জন্য এআই টুলস কীভাবে ব্যবহার করতে হয় তা শিখে আমার উৎপাদনশীলতা অনেক বেড়েছে। সকল শিক্ষার্থীর জন্য অত্যন্ত সুপারিশযোগ্য!">The AI Course is very up-to-date and practical. Learning prompt engineering and how to use AI tools for studying has increased my productivity significantly. Highly recommended for all students!</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+            <div class="review-author-info">
+              <h4>MD Yeakub</h4>
+              <span data-en="Student" data-bn="শিক্ষার্থী">Student</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4: Web Design & Development -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Web Design & Dev</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="The Web Design course is very well-structured. Rashed Sir explains HTML and CSS very clearly. I have already built my own portfolio website and learned how to make it responsive." data-bn="ওয়েব ডিজাইন কোর্সটি খুব সুন্দরভাবে সাজানো হয়েছে। রাশেদ স্যার HTML এবং CSS খুব পরিষ্কারভাবে ব্যাখ্যা করেন। আমি ইতিমধ্যে আমার নিজের পোর্টফোলিও ওয়েবসাইট তৈরি করেছি এবং এটি কীভাবে রেসপনসিভ করতে হয় তা শিখেছি।">The Web Design course is very well-structured. Rashed Sir explains HTML and CSS very clearly. I have already built my own portfolio website and learned how to make it responsive.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-code"></i></div>
+            <div class="review-author-info">
+              <h4>Md Zubayer Hossain Siam</h4>
+              <span data-en="Student" data-bn="শিক্ষার্থী">Student</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 5: HSC ICT -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">HSC ICT</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="review-text" data-en="As HSC students, the ICT theory and practical classes helped us a lot. The teaching style is so simple that even difficult topics like programming become easy to understand." data-bn="এইচএসসি শিক্ষার্থী হিসেবে আইসিটি থিওরি এবং প্র্যাকটিক্যাল ক্লাস আমাদের অনেক সাহায্য করেছে। পড়ানোর ধরন এত সহজ যে প্রোগ্রামিংয়ের মতো কঠিন বিষয়গুলোও বোঝা সহজ হয়ে যায়।">As HSC students, the ICT theory and practical classes helped us a lot. The teaching style is so simple that even difficult topics like programming become easy to understand.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-book-reader"></i></div>
+            <div class="review-author-info">
+              <h4>MTS Sumaiya & MTS Navila</h4>
+              <span data-en="HSC Students" data-bn="এইচএসসি শিক্ষার্থী">HSC Students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 6: Digital Marketing -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Digital Marketing</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="The Digital Marketing course covered everything from social media to SEO. The Facebook Ads module was particularly helpful for growing our small business and reaching the right audience." data-bn="ডিজিটাল মার্কেটিং কোর্সে সোশ্যাল মিডিয়া থেকে শুরু করে এসইও পর্যন্ত সবকিছু কভার করা হয়েছে। ফেসবুক অ্যাডস মডিউলটি আমাদের ছোট ব্যবসা বাড়ানোর এবং সঠিক গ্রাহকের কাছে পৌঁছানোর জন্য বিশেষভাবে সহায়ক ছিল।">The Digital Marketing course covered everything from social media to SEO. The Facebook Ads module was particularly helpful for growing our small business and reaching the right audience.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-bullhorn"></i></div>
+            <div class="review-author-info">
+              <h4>Md Naidul, Md Sheikh Farid, Mesbah Uddin</h4>
+              <span data-en="Digital Marketing Students" data-bn="ডিজিটাল মার্কেটিং শিক্ষার্থী">Digital Marketing Students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 7: Kids Computer -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Kids Computer</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="I love the Kids Computer classes! Sir teaches us typing, drawing, and basic computer skills in a very fun way. Now I can use the computer better than my older brother." data-bn="আমি কিডস কম্পিউটার ক্লাস ভালোবাসি! স্যার আমাদের খুব মজার উপায়ে টাইপিং, ড্রইং এবং মৌলিক কম্পিউটার দক্ষতা শেখান। এখন আমি আমার বড় ভাইয়ের চেয়ে ভালো কম্পিউটার ব্যবহার করতে পারি।">I love the Kids Computer classes! Sir teaches us typing, drawing, and basic computer skills in a very fun way. Now I can use the computer better than my older brother.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-child"></i></div>
+            <div class="review-author-info">
+              <h4>MD Meheraj</h4>
+              <span data-en="Secondary Student" data-bn="মাধ্যমিক শিক্ষার্থী">Secondary Student</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 8: Basic Office Course -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Basic Office Course</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="review-text" data-en="The Basic Office course is perfect for beginners. We learned Word, Excel, and PowerPoint from the very basics. It has helped us a lot in our daily work and studies." data-bn="বেসিক অফিস কোর্সটি একদম বিগিনারদের জন্য পারফেক্ট। আমরা একেবারে বেসিক থেকে ওয়ার্ড, এক্সেল এবং পাওয়ারপয়েন্ট শিখেছি। এটি আমাদের দৈনন্দিন কাজ এবং পড়াশোনায় অনেক সাহায্য করেছে।">The Basic Office course is perfect for beginners. We learned Word, Excel, and PowerPoint from the very basics. It has helped us a lot in our daily work and studies.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-users"></i></div>
+            <div class="review-author-info">
+              <h4>MD Nahid, Faejana, Shamim & Momotaz</h4>
+              <span data-en="Basic Office Students" data-bn="বেসিক অফিস শিক্ষার্থী">Basic Office Students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 9: Professional Office -->
+        <div class="review-card">
+          <div>
+            <span class="review-course-tag">Professional Office</span>
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text" data-en="The Professional Office course taught us advanced office management skills, which are essential for corporate jobs. The assignments were very realistic and prepared us for the professional world." data-bn="প্রফেশনাল অফিস কোর্স আমাদের অ্যাডভান্সড অফিস ম্যানেজমেন্ট দক্ষতা শিখিয়েছে, যা কর্পোরেট চাকরির জন্য অপরিহার্য। অ্যাসাইনমেন্টগুলো খুব বাস্তবসম্মত ছিল এবং আমাদের পেশাদার জগতের জন্য প্রস্তুত করেছে।">The Professional Office course taught us advanced office management skills, which are essential for corporate jobs. The assignments were very realistic and prepared us for the professional world.</p>
+          </div>
+          <div class="review-author">
+            <div class="avatar"><i class="fas fa-briefcase"></i></div>
+            <div class="review-author-info">
+              <h4>Md Nahidul Islam & MD Anas</h4>
+              <span data-en="Professional Office Students" data-bn="প্রফেশনাল অফিস শিক্ষার্থী">Professional Office Students</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- এআই এক্সপার্টাইজ সেকশন -->
     <section id="ai" class="section">
       <header class="section__head slide-left">
-        <span class="section__num">05 — FUTURE VISION</span>
+        <span class="section__num">06 — FUTURE VISION</span>
         <h2 class="section__title" data-en="AI Expertise & Vision" data-bn="এআই দক্ষতা ও ভিশন">AI Expertise & Vision</h2>
       </header>
       <div class="ai-card slide-up">
@@ -538,7 +851,7 @@
     <!-- মাই প্রজেক্টস -->
     <section id="projects" class="section">
       <header class="section__head slide-left">
-        <span class="section__num">06 — PORTFOLIO</span>
+        <span class="section__num">07 — PORTFOLIO</span>
         <h2 class="section__title" data-en="My Projects" data-bn="আমার প্রজেক্টসমূহ">My Projects</h2>
       </header>
       <div class="slide-right" style="background: var(--card-bg); padding: 48px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border); text-align: center;">
@@ -551,7 +864,7 @@
     <!-- সার্টিফিকেট সেকশন -->
     <section id="certifications" class="section">
       <header class="section__head slide-left">
-        <span class="section__num">07 — QUALIFICATIONS</span>
+        <span class="section__num">08 — QUALIFICATIONS</span>
         <h2 class="section__title" data-en="Certifications" data-bn="সার্টিফিকেট">Certifications</h2>
       </header>
       <div class="cert-grid slide-right">
@@ -596,22 +909,31 @@
     <!-- কানেক্ট সেকশন -->
     <section id="connect" class="section">
       <header class="section__head slide-left">
-        <span class="section__num">08 — GET IN TOUCH</span>
+        <span class="section__num">09 — GET IN TOUCH</span>
         <h2 class="section__title" data-en="Let's Connect" data-bn="যোগাযোগ করুন">Let's Connect</h2>
         <p class="section__lede" data-en="Feel free to reach out through any of my social profiles or contact me directly on WhatsApp." data-bn="আমার যেকোনো সোশ্যাল প্রোফাইলের মাধ্যমে যোগাযোগ করুন অথবা সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।">Feel free to reach out through any of my social profiles or contact me directly on WhatsApp.</p>
       </header>
       
+      <!-- Social Buttons with Icons -->
       <div class="slide-right" style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
-        <a href="https://www.facebook.com/TechRashadRaihan" target="_blank" class="btn btn--ghost">Facebook</a>
-        <a href="https://www.instagram.com/techrashadraihan" target="_blank" class="btn btn--ghost">Instagram</a>
-        <a href="https://www.linkedin.com/in/techrashedraihan" target="_blank" class="btn btn--ghost">LinkedIn</a>
-        <a href="https://www.behance.net/techrashad" target="_blank" class="btn btn--ghost">Behance</a>
+        <a href="https://www.facebook.com/TechRashadRaihan" target="_blank" class="btn btn--ghost">
+          <i class="fab fa-facebook-f" style="color: #1877F2;"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/techrashadraihan" target="_blank" class="btn btn--ghost">
+          <i class="fab fa-instagram" style="color: #E4405F;"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/techrashedraihan" target="_blank" class="btn btn--ghost">
+          <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> LinkedIn
+        </a>
+        <a href="https://www.behance.net/techrashad" target="_blank" class="btn btn--ghost">
+          <i class="fab fa-behance" style="color: #1769FF;"></i> Behance
+        </a>
       </div>
 
       <div class="slide-up" style="background: var(--card-bg); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(10px); border: 1px solid var(--card-border); text-align: center;">
         <h3 style="font-size: 1.6rem; margin-bottom: 16px; color: var(--ink);" data-en="Want to discuss a project or training?" data-bn="কোনো প্রজেক্ট বা প্রশিক্ষণ নিয়ে আলোচনা করতে চান?">Want to discuss a project or training?</h3>
         <p style="font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 24px;" data-en="If you want to contact me directly, you can easily message me on WhatsApp." data-bn="যদি আপনি সরাসরি আমার সাথে যোগাযোগ করতে চান, তবে সহজেই হোয়াটসঅ্যাপে মেসেজ করতে পারেন।">If you want to contact me directly, you can easily message me on WhatsApp.</p>
-        <a href="https://wa.me/8801407774872" target="_blank" class="btn btn--primary" style="background: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);" data-en="Contact Me on WhatsApp ↗" data-bn="হোয়াটসঅ্যাপে যোগাযোগ করুন ↗">Contact Me on WhatsApp ↗</a>
+        <a href="https://wa.me/8801407774872" target="_blank" class="btn btn--primary" style="background: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);" data-en="<i class='fab fa-whatsapp'></i> Contact Me on WhatsApp ↗" data-bn="<i class='fab fa-whatsapp'></i> হোয়াটসঅ্যাপে যোগাযোগ করুন ↗"><i class="fab fa-whatsapp"></i> Contact Me on WhatsApp ↗</a>
         <p style="margin-top: 16px; font-size: 0.95rem; color: var(--ink-soft);" data-en="Or Email: <a href='mailto:techrashad.03@gmail.com' style='color: var(--accent); font-weight: 600;'>techrashad.03@gmail.com</a>" data-bn="অথবা ইমেইল করুন: <a href='mailto:techrashad.03@gmail.com' style='color: var(--accent); font-weight: 600;'>techrashad.03@gmail.com</a>">Or Email: <a href="mailto:techrashad.03@gmail.com" style="color: var(--accent); font-weight: 600;">techrashad.03@gmail.com</a></p>
       </div>
     </section>
@@ -678,6 +1000,7 @@
       currentLang = currentLang === 'en' ? 'bn' : 'en';
       langToggleBtn.textContent = currentLang === 'en' ? 'বাংলা' : 'English';
       
+      // সাধারণ টেক্সট পরিবর্তন
       const elements = document.querySelectorAll('[data-en]');
       elements.forEach(el => {
         if (currentLang === 'bn') {
@@ -686,9 +1009,37 @@
           el.innerHTML = el.getAttribute('data-en');
         }
       });
+
+      // বায়োগ্রাফি সেকশন হ্যান্ডেল করা
+      const bioEn = document.getElementById('bio-en');
+      const bioBn = document.getElementById('bio-bn');
+      if (currentLang === 'bn') {
+        if(bioEn) bioEn.style.display = 'none';
+        if(bioBn) bioBn.style.display = 'block';
+      } else {
+        if(bioEn) bioEn.style.display = 'block';
+        if(bioBn) bioBn.style.display = 'none';
+      }
     }
 
-    // ৪. স্ক্রল অ্যানিমেশন
+    // ৪. More Info (Bio) টগল
+    function toggleBio() {
+      const fullBio = document.getElementById('fullBio');
+      const btn = document.getElementById('moreInfoBtn');
+      const icon = btn.querySelector('i');
+      
+      if (fullBio.style.display === 'block') {
+        fullBio.style.display = 'none';
+        icon.className = 'fas fa-chevron-down';
+        btn.querySelector('span').innerText = currentLang === 'en' ? 'More Info' : 'আরও জানুন';
+      } else {
+        fullBio.style.display = 'block';
+        icon.className = 'fas fa-chevron-up';
+        btn.querySelector('span').innerText = currentLang === 'en' ? 'Show Less' : 'কম দেখান';
+      }
+    }
+
+    // ৫. স্ক্রল অ্যানিমেশন
     document.addEventListener("DOMContentLoaded", function() {
       const animatedElements = document.querySelectorAll(".slide-left, .slide-right, .slide-up");
       
